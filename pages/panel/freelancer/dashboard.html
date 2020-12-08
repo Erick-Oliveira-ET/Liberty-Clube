@@ -9,22 +9,28 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+		
+		<!-- Chartist -->
+		<link rel="stylesheet"
+		href="../../../assets/bower_components/chartist/dist/chartist.min.css">
+		
+		<!-- Personal Styling -->
 		<link rel="stylesheet" href="./style-dashboard.css" />
 		<link rel="stylesheet" href="./styled-graphs.css" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
 	</head>
-
+	
 	<body>
 		<div id="page-wrapper">
-
+			
 			<!-- Header -->
 			<header id="header">
 				<a class="logo" href="../../index.html">
 					<img src="../../../icons/Liberty_Trader.svg" alt="a">
 					Liberty Trader
-
-				</a>
 					
+				</a>
+				
 				
 				<nav id="nav">
 					<div class="menu-button" id="menuButton">
@@ -35,18 +41,18 @@
 					<button class="button red exit">Sair</button>
 				</nav>
 			</header>
-
+			
 			<!-- Main -->
-
+			
 			<div class="panel-arrangement">
 				<div class="sidemenu">
-
+					
 					<div>
-
+						
 						<h1 class="sidemenu-name">John Doe</h1>
-	
+						
 						<p class="sidemenu-value">Valor em conta: 342309.00 USD</p>
-	
+						
 						<div class="options">
 							<a href="#">
 								<img src="../../../icons/user-alt.svg" alt="">
@@ -67,24 +73,24 @@
 							<a href="#" class="extra-exit-button">
 								<p class="extra-exit-button">Sair</p>
 							</a>
-	
+							
 						</div>
 						
 					</div>
-
+					
 					<footer>
 						<a href="">
 							<img src="../../../icons/facebook_logo.svg" alt="">
 						</a>
-
+						
 						<a href="">
 							<img src="../../../icons/instagram_logo.svg" alt="">
 						</a>
-
+						
 						<a href="">
 							<img src="../../../icons/email_logo.svg" alt="">
 						</a>
-
+						
 						<a href="">
 							<img src="../../../icons/telegram_logo.svg" alt="">
 						</a>
@@ -92,40 +98,39 @@
 				</div>
 				
 				<div class="dash_data">
-						<form method="post" action="#">
-							<div class="mainChart">
-								<canvas id="mainChart"></canvas>
-							</div>
-							<div class="leftChart">
-								<canvas id="leftChart"></canvas>
-							</div>
-							<div class="rightChart">
-								<canvas id="rightChart"></canvas>
-							</div>
-							<!-- <canvas id="mainChart"></canvas>
-							<canvas id="leftChart"></canvas>
-							<canvas id="rightChart"></canvas> -->
+					<form method="post" action="#">
+						<div class="mainChart row">
+							<div class="ct-chart ct-golden-section" id="chart1"></div>
+						</div>
+						<div class="leftChart">
+							<div class="ct-chart ct-golden-section" id="chart2"></div>
+						</div>
+						<div class="rightChart">
+							<div id="chart3" class="ct-chart ct-perfect-fourth"></div>
+						</div>
 							
-
+								
 						</form>
-				</div>
-
+					</div>
+					
 			</div>
 		</div>
-
+		
 		<!-- Scripts -->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-		<script src="../../assets/js/jquery.min.js"></script>
-		<script src="../../assets/js/jquery.scrolly.min.js"></script>
-		<script src="../../assets/js/jquery.dropotron.min.js"></script>
-		<script src="../../assets/js/jquery.scrollex.min.js"></script>
-		<script src="../../assets/js/browser.min.js"></script>
-		<script src="../../assets/js/breakpoints.min.js"></script>
-		<script src="../../assets/js/util.js"></script>
-		<script src="../../assets/js/main.js"></script>
+		<script src="../../../assets/js/jquery.min.js"></script>
+		<script src="../../../assets/js/jquery.scrolly.min.js"></script>
+		<script src="../../../assets/js/jquery.dropotron.min.js"></script>
+		<script src="../../../assets/js/jquery.scrollex.min.js"></script>
+		<script src="../../../assets/js/browser.min.js"></script>
+		<script src="../../../assets/js/breakpoints.min.js"></script>
+		<script src="../../../assets/js/util.js"></script>
+		<script src="../../../assets/js/main.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		
+		<script src="../../../assets/bower_components/chartist/dist/chartist.min.js"></script>
 
 		<!-- Menu open and close function -->
 		<script>
@@ -144,69 +149,22 @@
 
 		<!-- Graphs -->
 		<script>
-
-			var mainCtx = document.getElementById('mainChart').getContext('2d');
-			var leftCtx = document.getElementById('leftChart').getContext('2d');
-			var rightCtx = document.getElementById('rightChart').getContext('2d');
-			var mainChart = new Chart(mainCtx, {
-				// The type of chart we want to create
-				type: 'line',
-
-				// The data for our dataset
-				data: {
-					labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-					datasets: [{
-						label: 'My First dataset',
-						backgroundColor: 'rgb(255, 99, 132)',
-						borderColor: 'rgb(255, 99, 132)',
-						data: [0, 10, 5, 2, 20, 30, 45]
-					}]
-				},
-
-				// Configuration options go here
-				options: {
-					resposive: true,
-					mantainApectRatio: true,
-					layout: {
-						padding: 76
-					}
-				}
+			// Create a new line chart object where as first parameter we pass in a selector
+			// that is resolving to our chart container element. The Second parameter
+			// is the actual data object.
+			new Chartist.Line('#chart1', {
+				labels: [1, 2, 3, 4],
+				series: [[100, 120, 180, 200]]
 			});
-			var rightChart = new Chart(rightCtx, {
-				// The type of chart we want to create
-				type: 'line',
 
-				// The data for our dataset
-				data: {
-					labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-					datasets: [{
-						label: 'My First dataset',
-						backgroundColor: 'rgb(255, 99, 132)',
-						borderColor: 'rgb(255, 99, 132)',
-						data: [0, 10, 5, 2, 20, 30, 45]
-					}]
-				},
-
-				// Configuration options go here
-				options: {resposive: true, mantainApectRatio: true},
+			new Chartist.Bar('#chart2', {
+				labels: [1, 2, 3, 4],
+				series: [[5, 2, 8, 3]]
 			});
-			var leftChart = new Chart(leftCtx, {
-				// The type of chart we want to create
-				type: 'line',
 
-				// The data for our dataset
-				data: {
-					labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-					datasets: [{
-						label: 'My First dataset',
-						backgroundColor: 'rgb(255, 99, 132)',
-						borderColor: 'rgb(255, 99, 132)',
-						data: [0, 10, 5, 2, 20, 30, 45]
-					}]
-				},
-
-				// Configuration options go here
-				options: {resposive: true, mantainApectRatio: true}
+			new Chartist.Bar('#chart3', {
+				labels: [1, 2, 3, 4],
+				series: [[5, 2, 8, 3]]
 			});
 
 		</script>

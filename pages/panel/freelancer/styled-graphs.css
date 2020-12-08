@@ -8,22 +8,26 @@
 
 form {
     width: 80%;
-    height: 40%;
+    height: 100%;
+/* 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
 
-    padding: 66px;
 
     display: grid;
-    column-gap: 20px;
     row-gap: 20px;
 
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: minmax(30vh, 1fr) minmax(30vh, 1fr) ;
+    grid-template-rows: 1fr 1fr ;
     grid-template-areas: "mainChart mainChart" 
     "leftChart rightChart";
 }
 
 .mainChart {
     position: relative;
+    width: 60% !important;
 
     border-radius: 20px;
     /* padding: 10px; */
@@ -37,7 +41,10 @@ form {
 
 .leftChart {
     position: relative;
+    height: 100% !important;
+    width: 100% !important;
 
+    color: #ffffff;
     border-radius: 20px;
     
     display: flex;
@@ -49,6 +56,8 @@ form {
 
 .rightChart {
     position: relative;
+    height: 100% !important;
+    width: 100% !important;
     
     border-radius: 20px;
     
@@ -58,6 +67,14 @@ form {
     
     grid-area: rightChart;
 }
+
+.ct-chart .ct-grids line {
+    stroke: steelblue;
+}
+.ct-chart .ct-labels span {
+    color: steelblue;
+}
+
 
 @media screen and (max-width: 700px) {
     form {
